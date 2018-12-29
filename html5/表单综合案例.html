@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学生档案</title>
+</head>
+<body>
+  <form action="php.con" method="GET">
+    <fieldset>
+      <legend>学生档案</legend>
+      <p>
+        <label for="username">姓名:&nbsp;</label>
+        <input type="text" id="username" name="username" placeholder="请输入学生姓名" autofocus>
+      </p>
+      <p>
+        <label>手机号： <input type="tel" name="tel" required></label>
+      </p>
+      <p>
+        <label for="email">邮箱：</label>
+        <input type="email" id="email">
+      </p>
+      <p>
+        所属学院: <input type="text" list="collage" name="collage" placeholder="请选择学院">
+        <datalist id="collage">
+          <option value="前端与移动开发学院"></option>
+          <option value="java学院"></option>
+          <option value="c++学院"></option>
+          <option value="php学院"></option>
+        </datalist>
+      </p>
+      <p>
+        所属班级: <input type="text" list="iClass" placeholder="请选择班级" required>
+        <datalist id="iClass">
+          <option value="1501"></option>
+          <option value="1502"></option>
+          <option value="1503"></option>
+        </datalist>
+      </p>
+      <p>
+        出生日期 ： <input type="date" required>
+      </p>
+      <p>
+        成绩： <input type="number" required>
+      </p>
+      <p>毕业时间： <input type="date"></p>
+      <p>
+          <label for="upFile">上传文件</label>
+          <input type="file" multiple required>
+        </p>
+      <p>
+        <input type="submit">
+        <input type="reset">
+      </p>
+    </fieldset>
+  </form>
+</body>
+</html>
