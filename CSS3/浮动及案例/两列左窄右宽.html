@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>两列左窄右宽</title>
+  <style>
+    .header, .content, .footer {
+      width: 900px;
+      height: 200px;
+      background-color: pink;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+    .left-content {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      float: left;
+    }
+    .right-content {
+      width: 690px;
+      height: 200px;
+      background-color: yellow;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">header</div>
+  <div class="content">
+    <div class="left-content">左边</div>
+    <div class="right-content">右边</div>
+  </div>
+  <div class="footer">footer</div>
+</body>
+</html>

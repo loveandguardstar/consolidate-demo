@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>浮动详解</title>
+  <style>
+    .box {
+      width: 400px;
+    }
+    .box:after {
+      content: '.';
+      clear: both;
+      display: block;
+      visibility: hidden;
+      overflow: hidden;
+    }
+    .box1 {
+      width: 200px;
+      height: 200px;
+      background: pink;
+      float: left;
+    }
+    .box2 {
+      height: 400px;
+      background-color: deeppink;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box1">5</div>
+  </div>  
+  <div class="box2">6asjdfksdf几十灯光静安寺的宫颈癌是打飞机阿萨德刚加上电路结果阿萨德刚是大哥阿萨德个</div>
+</body>
+</html>
