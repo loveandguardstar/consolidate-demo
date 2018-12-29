@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>循环对象自身的属性</title>
+</head>
+<body>
+    <script>
+        function Foo(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        Foo.prototype.alertName = function () {
+            alert(this.name)
+        }
+
+        var f = new Foo('zhangsan', 21)
+
+        f.printName = function () {
+            console.log(this.name)
+        }
+
+        f.printName()
+        f.alertName()
+
+        var item 
+        for (item in f) {
+            console.log('第一次' + item)
+            // 建议加上下面判断保证代码的健壮性
+            if (f.hasOwnProperty(item)) {
+                console.log(item)
+            }
+        }
+    </script>
+</body>
+</html>

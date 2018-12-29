@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var nowDate = new Date('2014')
+    console.log(nowDate)
+    var getYear = new Date().getFullYear()
+    var getMou = new Date(2).getMonth() + 1
+    var getDa = new Date().getDate()
+    console.log(typeof getDa)
+    function changeDouble(date) {
+      return date < 10 ? '0'+ date : date
+    }
+    changeDouble(getYear)
+    changeDouble(getMou)
+    changeDouble(getDa)
+    console.log(getYear + '-' + getMou + '-' + getDa)
+
+    var random = Math.random() 
+    var random = random + '000000000000'
+    var random = random.slice(0, 10)
+    console.log(random)
+  </script>
+</body>
+</html>

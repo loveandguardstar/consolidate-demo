@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // this只有在执行的时候才能确认值，定义时无法确认。例如
+    // 构造函数执行
+    function Foo(name) {
+      this = {}
+      this.name = name
+      return this
+    }
+
+    var f = new Foo('zhangsan')
+    // 作为对象的属性执行
+    var obj = {
+      name: 'A',
+      printName: function () {
+        console.log(this.name)
+      }
+    }
+    obj.printName()
+
+    // 作为普通函数执行
+    function fn() {
+      console.log(this)
+    }
+    fn()
+    // call apply bind执行
+    function fn1() {
+      console.log(this.name)
+      console.log(this)
+    }
+    fn1.call({'lover': 'star'}, 'zhangsan')
+  </script>
+</body>
+</html>

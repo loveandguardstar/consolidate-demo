@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue响应式</title>
+</head>
+<body>
+  <script>
+    var vm = {}
+    var data = {
+      name: 'zhangsan',
+      age: 20
+    }
+    var key, value
+    for(key in data) {
+      (function (key) {
+        Object.defineProperty(vm, key, {
+          get: function () {
+            console.log('get')
+            return data[key]
+          },
+          set: function (newVal) {
+            console.log('set', newVal)
+            data[key] = newVal
+          }
+      })
+        })(key)
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包</title>
+</head>
+<body>
+  <script>
+    // 闭包的两个场景
+    // 1、函数作为返回值
+    // 2、函数作为参数传递
+    function Fn1() {
+      var a = 'xinxin'
+      
+      // 返回一个函数（ 函数作为返回值 ）
+
+      return function () {
+        console.log(a) // 自有变量，父级作用域寻找
+      }
+    }
+
+    var fn1 = Fn1()
+    var a = 200
+    fn1()
+    function fn2(fn) {
+      var a = '100'
+      fn()
+    }
+    fn2(fn1)
+
+    // 闭包实际应用中主要用于封装变量，收敛权限
+    function isFirstLoad() {
+      var _list = []
+      return function (id) {
+        if(_list.indexOf(id) >= 0) {
+          return false
+        } else {
+          _list.push(id)
+          return true
+        }
+      }
+    }
+    // 使用
+    var firstLoad = isFirstLoad()
+    firstLoad(10)
+    firstLoad(10)
+    firstLoad(20)
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>foreach</title>
+</head>
+<body>
+  <p>为那个…… 其实你真个字：决定！<br>决定要不<b style=" color: red">正缺乏的就两 </b>要改变现状而已！一切根源在于自为那个…… 其实你真正缺乏的就两个字：决定！ 决定要不要改变现状而已！一切根源在于自为那个…… 其实你真正缺乏的就两个字：决定！ 决定要不要改变现状而已！一切根源在于自为那个…… 其实你真正缺乏的就两个字：决定！ 决定要不要改变现状而已！一切根源在于自为那个…… 其实你真正缺乏的就两个字：决定！ 决定要不要改变现状而已！一切根源在于自为那个…… 其实你真正缺乏的就两个字：决定！ 决定要不要改变现状而已！一切根源在于自为那个…… 其实你真正缺乏的就两个字：决定！ 决定要不要改变现状而已！一切根源在于自为那个…… 其实<br>你真正缺乏的就两个字：决定！ 决定要不要改变现状而已！一切根源在于自为那个…… 其实你真正缺乏的就两个字：决定！ 决定要不要改变现状而已！一切根源在于自</p>
+  <script>
+    var arr = ['star', 'xinxin', 'my lover']
+    forEach(arr, function(index, item) {
+      console.log(index, item)
+    })
+
+    function forEach(obj, fn) {
+      var key
+      if (obj instanceof Array) {
+        obj.forEach(function(item, index) {
+          fn(index, item)
+        })
+      } else {
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            fn(key, obj[key])
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
