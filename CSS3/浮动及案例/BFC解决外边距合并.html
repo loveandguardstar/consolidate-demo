@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>外边距合并</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .father {
+      border: 1px solid black;
+      width: 600px;
+      overflow: hidden;
+    }
+    .son {
+      width: 100px;
+      height: 100px;
+      /* float: left; */
+      background-color: purple;
+    }
+    .wrap {
+      overflow: hidden;
+    }
+    .wrap>div:first-child {
+      margin-bottom: 20px;
+    }
+    .father>div:last-child {
+      margin-top: 50px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="wrap">
+        <div class="son"></div>
+    </div>
+    <div class="son"></div>
+  </div>
+</body>
+</html>

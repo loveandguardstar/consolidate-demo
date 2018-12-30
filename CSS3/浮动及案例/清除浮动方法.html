@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>清除浮动</title>
+  <style>
+    .box {
+      border: 1px solid black;
+      /* overflow: hidden; 清除浮动方法二： 触发BFC */
+    }
+    .left, .right {
+      width: 200px;
+      height: 52px;
+      background-color: pink;
+      margin: 10px 10px;
+      float: left;
+    }
+    .footer {
+      width: 200px;
+      height: 52px;
+      background-color: antiquewhite;
+    }
+    .clearfix:after {
+      clear: both;
+      content: ".";
+      display: block;
+      height: 0;
+      visibility: hidden;
+    }
+    .clearfix {
+      *zoom: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="box clearfix">
+    <div class="left">left</div>
+    <div class="right">right</div>
+    <!-- 清除浮动方法 1.在浮动元素末尾添加空标签
+    <div style="clear:both"></div> -->
+  </div>
+  <footer class="footer">底部</footer>
+</body>
+</html>

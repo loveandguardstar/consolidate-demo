@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文本不换行</title>
+  <style>
+    .p {
+      white-space: nowrap;      /* 强制不换行 */
+      overflow: hidden;       /* 超出文本隐藏 */
+      text-overflow: ellipsis; /* 执行超出省略号 */
+    } 
+    p {
+      text-indent: 2rem;
+      height: 30px;
+      line-height: 2rem;
+      overflow: hidden;
+      border: 1px solid pink;
+      position: relative;
+    }
+    P::after {
+      content: "...";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: white;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <p>
+      中间栏中间栏中间栏中间栏中间中间栏中间栏
+      中间栏中间栏中间栏中间栏中间栏gg中间栏gg中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏
+      中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏栏中gggg间栏中间栏中间栏中间栏
+  </p>
+</body>
+</html>
