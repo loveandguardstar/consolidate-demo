@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>携程网</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    body {
+      min-width: 320px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    header {
+      width: 100%;
+      height: 100px;
+    }
+    header img {
+      width: 100%;
+      height: 100%;
+    }
+    nav {
+      padding: 5px;
+    }
+    nav > section {
+      height: 100px;
+      border-radius: 5px;
+      background-color: #ff697a;
+      display: flex;
+      margin-bottom: 5px;
+    }
+    .row3 {
+      flex: 1;
+      border-left: 1px solid #fff;
+    }
+    .row>div:nth-child(1) {
+      border: 0;
+    }
+    .row:nth-child(2) {
+      background-color: #3d98ff;
+    }
+    .row:nth-child(3) {
+      background-color: #44c522;
+    }
+    .row:nth-child(4) {
+      background-color: #fc9720;
+    }
+    .hotel {
+      display: flex;
+      flex-direction: column;
+    }
+    .hotel>a {
+      text-decoration: none;
+      /* display: block; */
+      height: 49px;
+      line-height: 49px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0px 2px 1px rgba(0,0,0,0.3);
+    }
+    .twoLink {
+      border-top: 1px solid #fff;
+    }
+  </style>
+</head>
+<body>
+  <header><img src="images/ctrip.jpg" width="768" height="154" alt="wuwu~~"></header>
+  <nav>
+    <section class="row">
+      <div class="row3"></div>
+      <div class="row3 hotel">
+        <a href="#">特价酒店</a><a class="twoLink" href="#">海外酒店</a>
+      </div>
+      <div class="row3 hotel">
+          <a href="#">一起嗨</a><a class="twoLink" href="#">特价酒店</a>
+      </div>
+    </section>
+    <section class="row">
+      <div class="row3"></div>
+      <div class="row3 hotel">
+        <a href="#">特价酒店</a><a class="twoLink" href="#">一起海</a>
+      </div>
+      <div class="row3 hotel">
+          <a href="#">一起嗨</a><a class="twoLink" href="#">特价酒店</a>
+      </div>
+    </section>
+    <section class="row">
+      <div class="row3"></div>
+      <div class="row3 hotel">
+        <a href="#">特价酒店</a><a class="twoLink" href="#">一起海</a>
+      </div>
+      <div class="row3 hotel">
+          <a href="#">一起嗨</a><a class="twoLink" href="#">特价酒店</a>
+      </div>
+    </section>
+    <section class="row">
+      <div class="row3 hotel">
+          <a href="#">特价酒店</a><a class="twoLink" href="#">一起海</a>
+      </div>
+      <div class="row3 hotel">
+        <a href="#">特价酒店</a><a class="twoLink" href="#">一起海</a>
+      </div>
+      <div class="row3 hotel">
+          <a href="#">一起嗨</a><a class="twoLink" href="#">特价酒店</a>
+      </div>
+    </section>
+  </nav>
+</body>
+</html>

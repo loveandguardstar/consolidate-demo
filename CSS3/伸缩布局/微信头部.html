@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>微信头部</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: url(images/wx.jpg) repeat-x;
+    }
+    nav {
+      min-width: 780px;
+      max-width: 1200px;
+      font-size: 12px;
+    }
+    ul {
+      list-style: none;
+      overflow: hidden;
+    }
+    ul>li {
+      float: left;
+      margin: 0 10px;
+      padding-top: 21px;
+    }
+    ul>li>a {
+      display: block;
+      line-height:33px;
+      text-decoration: none;
+      color: #fff;
+      background: url(images/to.png) no-repeat;
+      padding-left: 15px;
+    }
+    ul>li>a:hover {
+      background-image: url(images/ao.png);
+    }
+    ul>li>a:hover>span {
+      background-image: url(images/ao.png);
+    }
+    ul>li>a>span {
+      display: block;
+      line-height: 33px;
+      background: url(images/to.png) no-repeat right center;
+      padding-right: 15px;
+    }
+    div {
+      width: 150px;
+      line-height: 52px;
+      background: pink;
+      margin: 52px auto;
+      text-align: center;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#"><span>首页</span></a></li>
+      <li><a href="#"><span>帮助与反馈</span></a></li>
+      <li><a href="#"><span>帮助与反馈</span></a></li>
+      <li><a href="#"><span>帮助与反馈</span></a></li>
+      <li><a href="#"><span>帮助与反馈</span></a></li>
+    </ul>
+  </nav>
+  <section>
+    <div>good idea</div>
+  </section>
+</body>
+</html>
