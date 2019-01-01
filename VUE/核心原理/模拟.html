@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>模拟</title>
+</head>
+<body>
+  <p>Object.property test</p>
+  <p>模拟实现</p>
+  <script type="text/javascript">
+    // var vm = new Vue({
+    //   data: function() {
+    //     return {
+    //       name: 'star',
+    //       age: 23
+    //     }
+    //   }
+    // })
+    var vm = {}
+    var data = {
+      name: 'star',age: 21
+    }
+    for (key in data) {
+      (function (key) {
+        Object.defineProperty(vm, key, {
+          set: function (newVal) {
+            console.log('set', newVal)
+            data[key] = newVal
+          },
+          get: function () {
+            console.log('get', data[key])
+            return data[key]
+          }
+        })
+      })(key)
+    }
+  </script>
+</body>
+</html>

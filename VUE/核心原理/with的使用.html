@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>with</title>
+</head>
+<body>
+  <p>test with</p>
+
+  <script>
+    var obj = {
+      name: 'star',
+      age: 21,
+      husband: 'Mr jun'
+    }
+    function fn () {
+      with(obj) {
+        alert(name);
+        alert(age);
+        alert(husband)
+      }
+    }
+    fn()
+  </script>
+</body>
+</html>
