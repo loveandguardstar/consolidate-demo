@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <script src="vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+  <title>vue复习</title>
+</head>
+<body>
+  <div id="example-1">
+    <ul>
+      <template  v-for="item in items">
+      <li>
+        {{ item }}
+      </li>
+      <li>55</li>
+    </template>  
+    </ul>
+    <button v-on:click.once="change">down</button>
+    <p></p>
+    <input type="radio" id="btn1" value="btn1" v-model="pick">
+    <label for="btn1">btn1: </label>
+    <input type="radio" id="btn2" value="btn2" v-model="pick">
+    <label for="btn2">btn2: </label>
+    <p>多选框</p>
+    <input type="checkbox" id="btn3" value="btn3" v-model="pickBoxs">
+    <label for="btn3">btn3: </label>
+    <input type="checkbox" id="btn4" value="btn4" v-model="pickBoxs">
+    <label for="btn4">btn4: </label>
+    <input type="checkbox" id="btn5" value="btn5" v-model="pickBoxs">
+    <label for="btn5">btn5: </label>
+    <p v-show="pickBoxs.length > 0">{{ pickBoxs }}</p>
+  </div>
+  <div class="down">
+    <button>绑定事件</button>
+    <BUTTON>555~~</BUTTON>
+  </div>
+  <script>
+    var example1 = new Vue({
+      el: '#example-1',
+      data: function() {
+        return {
+          items: [
+          'Foo',
+          'Bar',
+          'star'
+          ],
+          pick: '',
+          pickBoxs: []
+        }
+      },
+      methods: {
+        change: function() {
+          console.log('差劲')
+          // alert('55')
+          example1.items.splice(5);
+          Vue.set(example1.items, 1, 'star');
+          console.log(this.items.length)
+        }
+      }
+    });
+    var oDiv = document.getElementsByClassName('down')[0];
+    // oDiv.click = function () {
+
+    // }
+    oDiv.addEventListener('click', function() {
+      alert('66')
+    },true)
+  </script>
+</body>
+</html>

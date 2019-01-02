@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ES6</title>
+</head>
+<body>
+  <p>let/const</p>
+  <p>多行字符串/模板变量</p>
+  <p>解构赋值</p>
+  <p>块级作用域</p>
+  <p>函数默认参照</p>
+  <p>箭头函数</p>
+  <script>
+    let a = 10;
+    a = 23;
+    const b = 20;
+    // b = 23;  const声明的会报错
+    console.log(a);
+    console.log(b);
+
+    const name = 'zhangsan', age = 22;
+    const html = `
+      <div>
+        <p>${name}</p>
+        <p>${age}</p>
+      </div>
+    `
+  </script>
+</body>
+</html>
