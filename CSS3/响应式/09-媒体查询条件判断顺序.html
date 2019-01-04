@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 当判断最小值，并且从小到大进行判断 
+    1、向上兼容： 如果设置了宽度更小时的样式，默认这些样式也会传递到宽度更大的条件范围内
+    2、向下覆盖： 宽度更大的样式会将前面宽度小的样式覆盖
+    */
+    /* 
+    书写建议：
+    如果判断最小值：那就从最小到最大写  bootstrap: 就是这样 */
+    /* 
+    1、min-width: 指的是屏幕宽度，同样适用于PC端和手机端
+    2、min-device-width: 指的是设备宽度，只适用于移动端。如果用于PC端会失去响应
+     */
+    body {
+      background-color: black;
+    }
+    @media screen and (min-width: 768px) {
+      body {background-color: pink;}
+    }
+    @media screen and (min-width: 992px) {
+      body {background-color: purple;}
+    }
+    @media screen and (min-width: 1200px) {
+      body {background-color: red;}
+    }
+  </style>
+</head>
+<body>
+  
+</body>
+</html>

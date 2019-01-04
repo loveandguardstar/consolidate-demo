@@ -1,0 +1,16 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: pink;
+}
+
+.box>div {
+  width: 50%;
+  height: 100px;
+  float: left;
+  background-color: pink;
+  border-bottom: 2px solid white;
+}

@@ -1,0 +1,36 @@
+/* 相当于定义一个函数的参数 */
+.addRadius(@r:10px) {
+  border-radius: @r;
+  -webkit-border-radius: @r;
+  -moz-border-radius: @r;
+}
+div {
+  width: 200px;
+  height: 200px;
+  // 引入参数
+  .addRadius(5px);
+  color: #e92322;
+}
+
+/* 嵌套： 实现选择器的继承，
+同时使代码结构更加清晰*/
+.jd_header {
+  width: 100%;
+  height: 200px;
+  .addRadius();
+  > div {
+    &::before {
+      content: '';
+    }
+    >a {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    width: 100%;
+    h3 {
+      height: 20px;
+    }
+  }
+}

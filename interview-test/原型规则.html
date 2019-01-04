@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原型规则</title>
+</head>
+<body>
+  <script>
+    var a = {}, b = []; function c() {};
+    a.b = 'star';
+    b.b = 'star';
+    c.c = 'star';
+
+    console.log(a._proto_);
+    console.log(b._proto_);
+    console.log(c._proto_);
+
+    console.log(c.prototype);
+
+    console.log(a._proto_ === Object.prototype)
+  </script>
+</body>
+</html>
