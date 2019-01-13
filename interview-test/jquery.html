@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jquery</title>
+</head>
+<body>
+  <script type="text/javascript">
+    window.onload = function() {
+      var btn = document.getElementById('btn');
+      btn.onclick = function() {
+        var code = document.getElementById('code').value;
+        $.ajax({
+          type:'post',
+          url: './11.php',
+          data : {code:code},
+          dataType: 'json',//xml,json,text,html
+          success: function(data) {
+            var info = document.getElementById('info');
+            if (data.flag == 0) {
+              info.innerHTML = '没有这本书';
+            } else {
+              var tag = '<ul><li>书名：'+ data.bookname + '<li>作者</li>';
+              info.innerHTML = tag;
+            }
+          },
+          error: function(data){
+            console.log(data)
+            console.dir(data);
+            
+          }
+        })
+      }
+    }
+  </script>
+</body>
+</html>

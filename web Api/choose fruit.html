@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>choose fruit</title>
+  <style>
+    .choose {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <ul id="old">
+    <li>苹果</li>
+    <li>香蕉</li>
+    <li>例子</li>
+    <li>西瓜</li>
+    <li>葡萄</li>
+  </ul>
+  <button class="allRight"> >> </button>
+  <button class="allLeft"> << </button>
+  <button class="oneRight"> > </button>
+  <button class="oneLeft"> < </button>
+  <ul id="new"></ul>
+  <script>
+    // 1.选中水果
+    // 2、将选中水果换区
+    var oldBox = document.getElementById('old');
+    var newBox = document.getElementById('new');
+    var oneRight = document.getElementsByClassName('oneRight')[0];
+    var oneLeft = document.querySelector('.oneLeft');
+    var allRigth = document.querySelector('.allRight');
+    var allLeft = document.querySelector('.allLeft');
+    var i ;
+    for(i = 0; i < oldBox.children.length; i ++) {
+      var li = oldBox.children[i];
+      li.onclick = choose;
+    }
+    function choose() {
+      this.className = 'choose';
+    }
+    
+    oneRight.onclick = function() {
+      // 找到所有选中的
+      var arBox = [];
+      for(var i = 0; i < oldBox.children.length; i ++) {
+        var li = oldBox.children[i];
+        if(li.className === 'choose') {
+          arBox.push(li);
+          // 去掉选中效果
+          li.className = ''
+        }
+      }
+      // 将选中的转移
+      for(var i = 0; i< arBox.length; i ++) {
+          newBox.appendChild(arBox[i])
+      }
+    }
+    allRigth.onclick = function() {
+    var len = oldBox.children.length;
+      for(var i = 0; i <len; i++) {
+        var li = oldBox.children[0];
+          console.log(li)
+          newBox.appendChild(li)
+          li.className = ''
+      }
+    }
+    allLeft.onclick = function() {
+    var len1 = new  Box.children.length;
+      for(var i = 0; i <len1; i++) {
+        var li = newBox.children[0];
+          console.log(li)
+          oldBox.appendChild(li)
+          li.className = ''
+      }
+    }
+    //    //   两种移动方式区别，  使用innerHTML移动 ,移动之后会丢失
+    //   当使用innerHTML 清空子元素时，
+    //   如果子元素有事件，此时会发生内存泄漏， 事件没有被清除
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>click to check image</title>
+</head>
+<body>
+  <button>click</button>
+  <div><img src="#" id="mv" alt="good"></div>
+  <script>
+    var btn = document.querySelector('button');
+    var flag = 1;
+    btn.click = function () {
+      var mv = document.getElementById('mv');
+      if(flag === 1) {
+        mv.src = 'image/a.jpg';
+        flag = 0;
+      } else if (flag === 0) {
+        mv.src = 'iamge/b.jpg';
+        flag = 1
+      }
+    }
+  </script>
+</body>
+</html>

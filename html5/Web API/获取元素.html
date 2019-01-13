@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>获取元素</title>
+</head>
+<body>
+  <div></div>
+  <div id="main">4444</div>
+  <div></div>
+  <p>55</p>
+  <p>55</p>
+  <script type="text/javascript"> 
+    var main = document.getElementById('main');
+    console.dir(main)
+    var ps = document.getElementsByTagName('p');
+    console.log(ps);
+    for (var i = 0; i < ps.length; i ++) {
+      console.log(ps[i]);
+    }
+  </script>
+</body>
+</html>

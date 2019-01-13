@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>demo2</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      position: relative;
+      width: 600px;
+      height: 100%;
+      background: url(images/底层.gif) repeat;
+      background-size: 100% auto;
+      background-position: bottom;
+      color: white;
+      overflow: hidden;
+      padding-bottom: 150px;
+    }
+    .box>h2 {
+      text-align: center;
+      margin: 30px auto;
+    }
+    .textBox {
+      position: relative;
+      font-size: 14px;
+      list-style: none;
+      line-height: 30px;
+      padding-left: 30px;
+      z-index: 2;
+    }
+    .text::before {
+      content: '.';
+      position: absolute;
+      /* top: 0; */
+      left: 20px;
+      color: white; 
+    }
+    .imgBox {
+      position: absolute;
+      bottom: 0px;
+      font-size: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+  <h2>历史上的今天</h2>
+  <ul class="textBox">
+    <li class="text">1933年1月7日 中共临时中央由上海迁至瑞金。</li>
+    <li class="text">1937年1月7日 中共中央进驻延安。</li>
+    <li class="text">1933年1月7日 中共临时中央由上海迁至瑞金。</li>
+    <li class="text">1937年1月7日 中共中央进驻延安。</li>
+    <li class="text">1972年1月7日 中国第一枚实用氢弹试验成功</li>
+    <li class="text">1933年1月7日 中共临时中央由上海迁至瑞金。</li>
+    <li class="text">1937年1月7日 中共中央进驻延安。</li>
+    <li class="text">1972年1月7日 中国第一枚实用氢弹试验成功。</li>
+    <li class="text">1933年1月7日 中共临时中央由上海迁至瑞金。</li>
+  </ul>
+  <div class="imgBox">
+    <img src="./images/军人.gif" alt="军人">
+  </div>
+</div>
+</body>
+</html>

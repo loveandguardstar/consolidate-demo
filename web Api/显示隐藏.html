@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+    .hidden {
+      display: none;
+    }
+    .here {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" id="btn" value="隐藏"></input>
+  <div id="box"></div>
+  <script>
+    /*
+    **   开始要有性能的考虑了   !!!
+    类名的添加，以及 this 的调用
+    * 获取元素，绑定注册事件，
+    */
+    var btn = document.getElementById('btn')
+    var isShow = 1;
+    btn.onclick = function () {
+      var box = document.querySelector('#box')
+      if(isShow === 1) {
+        this.value = '显示';
+        box.className= 'hidden'
+        isShow = 0;
+      } else {
+        isShow = 1;
+        this.value = '隐藏';
+        box.className = 'here';
+      }
+    }
+  </script>
+</body>
+</html>

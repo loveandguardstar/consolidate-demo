@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动态创建列表</title>
+  <style>
+    .bg {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <button>click here</button>
+  <div id="box"></div>
+  <script>
+    var btn = document.querySelector('button');
+    var box = document.querySelector('#box');
+    var datas = ['西施', '王昭君', '貂蝉']
+    // 动态创建数组
+    // 动态添加时间，滑过动画
+    btn.onclick = function () {
+      console.log('55')
+      var ul = document.createElement('ul');
+      box.appendChild(ul);
+      var i ;
+      for(i = 0; i < datas.length; i++) {
+        li = document.createElement('li');
+        li.innerText = datas[i]
+        ul.appendChild(li);
+        li.onmousemove = changeColor;
+        li.onmouseout = recover;
+      }
+    }
+    function changeColor() {
+      this.className = 'bg'
+    }
+    function recover() {
+      this.className = ''
+    }
+  </script>
+</body>
+</html>

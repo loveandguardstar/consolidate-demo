@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>addEventListener</title>
+</head>
+<body>
+  <table id="outside">
+    <tr><td id="t1">one</td></tr>
+    <tr><td id="t2">two</td></tr>
+  </table>
+  <button>click there</button>
+  <script>
+    var btn = document.querySelector('button');
+    // btn.addEventListener('click', function() {
+    //   setTimeout(function() {
+    //     console.log(this)
+    //   },0);
+    //     name2.print();
+    //     console.log(this)
+    //   },false)
+    btn.addEventListener('click', ()=> {
+      setTimeout(function() {
+        console.log(this)
+      },0);
+        name2.print();
+        console.log(this)
+      },false)
+    // btn.addEventListener('click',  ()=>{name2.print()},false)
+    function modifyText(new_text) {
+      var t2 = document.getElementById("t2");
+      t2.firstChild.nodeValue = new_text;
+      console.log(this)
+    }
+    function CreateE(name) {
+      this.name = name;
+      this.print = function () {
+        console.log(this)
+      }
+    }
+    var name2 = new CreateE('star')
+  </script>
+</body>
+</html>

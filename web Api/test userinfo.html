@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test user information</title>
+  <style>
+    #txtUserName:hover {
+      /* -webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+      border-color:rgba(141,39,142,.75);
+      -webkit-box-shadow:0 0 18px rgba(111,1,32,3); */
+    }
+    .bg {
+      background-color: rgba(141,39,142,.75);
+      /* border : none; */
+      outline: aqua solid 10px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="txtUserName"><br>
+  <input type="text" id="txtUserPassword"><br>
+  <select name="up" id=""><option value="1">1</option>
+    <option value="2">2</option></select>
+  
+  <input type="button" class="btn" value="login"><br>
+  <script>
+    var btn = document.getElementsByClassName('btn')[0]
+    btn.onclick = function () {
+      var divisor = parseInt(Math.random()*100 + 5);
+       divisor = divisor % 6;
+      console.log(divisor)
+      var tuName = document.getElementById('txtUserName')
+      var tuPassword = document.getElementById('txtUserPassword')
+      if(tuPassword.value === '') {
+        console.log('55')
+        tuPassword.value = 'good idea';
+      }
+      if(tuName.value.length<3 || tuName.value.length>6) {
+        tuName.className = 'bg';
+        return;
+      } else {
+        tuName.className = ''
+      }
+    }
+  </script>
+</body>
+</html>

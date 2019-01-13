@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>choose</title>
+</head>
+<body>
+  <!-- if...else...
+  continue....
+  1. 控制子级元素跟随父级checkbox 选择
+    1） 获取父级CheckBox，添加点击事件
+    2） 事件中循环遍历所有子级 CheckBox， 学会使用continue  跳出此次循环继续下次 
+    3） 点击将所有选择和父级置为一样
+
+    一、独立循环判断是否子级全部选中，然后更改父级 CheckBox 状态
+    var isAllChecked = true;  // 多学会使用第三方控制主程序
+    for(...){
+      if(input.type !== 'checkbox') {
+        continue;
+      }
+      if(!input.checked) {
+        isAllChecked = false;
+      }
+    }
+    j_cbAll.checked = isAllChecked;
+  2. 控制反选
+    1） 将选择置为反向选择
+  -->
+  <div id="box">55</div>
+  <button>good</button>
+  <script>
+    var btn = document.querySelector('button')
+    btn.onclick = function () {
+      var box = document.getElementById('box');
+      box.setAttribute('class','box1');
+      box.setAttribute('style','background: red; width: 52px;height:52px')
+    }
+  </script>
+</body>
+</html>

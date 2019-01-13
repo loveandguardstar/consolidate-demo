@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>nodes</title>
+  <style>
+    .current {
+      width: 52px;
+      background-color: red;
+      height: 33px;
+    }
+    ul>li {
+      list-style: none;
+      float:left;
+      margin-left: 20px;
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <ul>
+      <li class="current"><a href="javascript:void(0);">22</a></li>
+      <li><a href="javascript:void(0);">33</a></li>
+      <li><a href="javascript:void(0);">44</a></li>
+      <li><a href="javascript:void(0);">55</a></li>
+      <li><a href="javascript:void(0);">66</a></li>
+      <li><a href="javascript:void(0);">77</a></li>
+    </ul>
+  </div>
+  <script>
+    var box = document.getElementById('box')
+    var ul = box.firstElementChild;
+
+    for(var i=0; i < ul.children.length; i++) {
+      var li = ul.children[i];
+      var link = li.firstElementChild;
+      console.dir(ul.children[0]);
+      link.onclick = linkClick;
+    }
+    function linkClick() {
+      for(var i = 0; i < ul.children.length; i ++) {
+        var li = ul.children[i];
+        li.className = '';
+      }
+      // this指的就是点击的元素
+      console.dir(this)
+      this.parentNode.className = 'current';
+
+      // 取消 a 的默认行为
+      return false;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="button" id='btn' value="click generate">
+  </div>
+  <script>
+    // 1.生成序列到输入框
+    // 2.取值赋值
+    var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      input.style.display = 'block';
+      if(input.type === 'text') {
+        input.value = i
+      }
+    }
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+      // var str = ''
+      var str = [];
+      for(var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+        if(input.type === 'text') {
+          // str += input.value + '|'
+          str.push(input.value)
+        }
+      }
+      // str = str.substring(0, str.length-1)
+      str = str.join('|');
+      console.log(str)
+    }
+  </script>
+</body>
+</html>
