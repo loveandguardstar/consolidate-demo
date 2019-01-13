@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件委托</title>
+</head>
+<body>
+  <ul>
+    <li>12</li>
+    <li>34</li>
+    <li>56</li>
+  </ul>
+  <script>
+    // 事件委托，原理事件冒泡
+    var ul = document.querySelector('ul');
+    var a = 1, b = 0, c = 4;
+    console.log(a&&b)
+    console.log(b&&c)
+    console.log(a||b)
+    console.log(b||c)
+    ul.onclick = function (e) {
+      // e 事件参数（事件对象）： 当事件发生时，可以获取一些和事件相关的参数
+      console.log(e)
+      e.target.style.backgroundColor = 'red';
+    }
+  </script>
+</body>
+</html>

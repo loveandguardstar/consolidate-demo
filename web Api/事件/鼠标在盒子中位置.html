@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid pink;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <input type="text" name="" id="txt">
+  <script>
+    // 目的：获取鼠标在盒子中距离
+    // 1、获取鼠标距离页面顶部距离
+    // 2、获取盒子距离页面顶部距离
+    var box = document.getElementById('box');
+    box.onclick = function (e) {
+      e = e || window.event;
+      var bT = e.clientY - box.offsetTop
+      var bL = e.clientX - box.offsetLeft
+      console.log(bT)
+      console.log(bL)
+    }
+
+    var txt = document.getElementById('txt');
+    txt.onkeydown = function (e) {
+      e = e || window.event;
+      console.log(e.keyCode)
+      if ((e.keyCode< 48 || e.keyCode > 57) && e.keyCode !== 8 ) {
+        e.preventDefault();
+      }
+    }
+  </script>
+</body>
+</html>

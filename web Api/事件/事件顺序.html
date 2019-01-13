@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件顺序</title>
+  <style>
+    #box1 {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+    #box2 {
+      width: 200px;
+      height: 200px;
+      background-color: yellowgreen;
+    }
+    #box3 {
+      width: 100px;
+      height: 100px;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">
+    <div id="box2">
+      <div id="box3"></div>
+    </div>
+  </div>
+  <script>
+    var box1 = document.getElementById('box1')
+    var box2 = document.getElementById('box2')
+    var box3 = document.getElementById('box3')
+    var array = [box1, box2, box3]
+    for(var i = 0; i < array.length; i ++) {
+      // array[i].addEventListener('click', function() {
+      //   console.log(this.id)
+      // },true)
+      array[i].onclick = function(e) {
+        e = e || window.event;
+        console.log(this.id)
+        // 事件的阶段
+        console.log(e.eventPhase);
+        // e.target 获取真正触发时间的对象
+        console.log(e.target)
+        // e.currentTarget 和this 一样，获取事件处理函数所属的对象
+        console.log(e.currentTarget)
+        console.log(this)
+      }
+    }
+    document.body.onclick = function() {
+      console.log('body')
+    }
+    document.onclick = function() {
+      console.log('document')
+    }
+    // document.body.addEventListener('click', function(){
+    //   console.log('body')
+    // },true)
+
+    // 事件的三个阶段， 除了addEventListener  其他绑定事件就是只有事件冒泡
+  </script>
+</body>
+</html>

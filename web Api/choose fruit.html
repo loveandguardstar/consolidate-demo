@@ -79,6 +79,7 @@
     //    //   两种移动方式区别，  使用innerHTML移动 ,移动之后会丢失
     //   当使用innerHTML 清空子元素时，
     //   如果子元素有事件，此时会发生内存泄漏， 事件没有被清除
+    //   如果使用removechild， 不仅删除oldBox.children.length元素，  事件也会被清除
   </script>
 </body>
 </html>

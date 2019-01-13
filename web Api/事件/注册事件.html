@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>注册事件</title>
+</head>
+<body>
+  <button>click here</button>
+  <script>
+    var btn = document.querySelector('button');
+    // 注册事件的第一种方式
+    // 无法给同一个事件源的同一事件名称注册多个事件处理程序
+    btn.onclick = function () {
+      console.log(44)
+    };
+    // btn.onclick = funciton () {
+
+    // }
+    // 注册事件第二种方式
+    btn.addEventListener('click', function() {
+      alert('hello, world')
+    })
+    btn.addEventListener('click', function() {
+      alert('hello, vue')
+    })
+    addDom(btn, 'click', function(){})
+    function addDom(element, eventName, callbackFunction) {
+      if(element.addEventListener) {
+        element.addEventListener(eventName, callbackFunction, false)
+      } else {
+        element.attachEvent('on'+ eventName, callbackFunction)
+      }
+    }
+
+    // 移除事件
+    btn.onclick = function () {
+      btn.onclick = null;
+    }
+    // addEventListener  匿名函数无法移除
+    btn.addEventListener('click', btnClick);
+    function btnClick() {
+      alert('hello  world');
+      btn.removeEventListener('click', btnClick)
+    }
+  </script>
+</body>
+</html>
