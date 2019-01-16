@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>倒计时</title>
+  <style>
+    #box  {
+      width: 250px;
+      height: 200px;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -125px;
+      margin-left: -100px;
+      font-size: 18px;
+    }
+    .day {
+      color: yellowgreen;
+
+    }
+    p>strong {
+      color: red;
+      box-shadow: 0 0 3px red;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <h3>回到亲爱的在等的家，还有</h3>
+    <p>
+      <span class="day"><span id="day">00</span>天</span>
+      <strong><span id="hour">00</span>时</strong>
+      <strong><span id="minute">00</span>分</strong>
+      <strong><span id="second">00</span>秒</strong>
+    </p>
+  </div>
+  <script>
+    //  1、做个 倒计时
+    //  2、目标时间
+    //  3、当前时间
+    //  4、相减
+    var endDate = new Date('2019-1-15 18:30:00');
+    var spanDay = my$('day');
+    var spanHour = my$('hour');
+    var spanMinute = my$('minute');
+    var spanSecond = my$('second');
+    
+    
+    setInterval(countdown, 100);
+    countdown();
+    
+    function my$(id) {
+      return document.getElementById(id)
+    }
+    
+    function countdown() {
+      var nowDate = new Date();
+      var interval = getInterval(nowDate, endDate)
+      setInnerText(spanDay, interval.day);
+      setInnerText(spanHour, interval.hour);
+      setInnerText(spanMinute, interval.minute);
+      setInnerText(spanSecond, interval.second);
+    }
+
+    function setInnerText(element, content) {
+    // 判断当前浏览器是否支持 innerText
+    if (typeof element.innerText === 'string') {
+      element.innerText = content;
+    } else {
+      element.textContent = content;
+    }
+  }
+
+    function getInterval(start, end) {
+      var interval = end - start;
+      var day, hour, minute, second;
+      // 两个日期对象， 相差的秒数
+      interval /= 1000;
+
+      day = Math.round(interval / 60 / 60 / 24);
+      hour = Math.round(interval / 60 / 60 % 24);
+      minute = Math.round(interval / 60 % 60);
+      second = Math.round(interval % 60);
+
+      return {
+        day: day,
+        hour: hour,
+        minute: minute,
+        second: second
+      }
+    }
+
+  </script>
+</body>
+</html>

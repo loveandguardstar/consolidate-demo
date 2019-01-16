@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>delete</title>
+  <style>
+    #box {
+      position: absolute;
+      color: red;
+      top: 50%;
+      left:50%;
+      transform: translateX(-50%);
+      transform: translateY(-50%);
+      display: none;
+      /* border: 1px solid red; */
+      box-shadow:  0 0 11px pink
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">delete</button>
+  <div id="box">delete success</div>
+  <script>
+    var btn = document.getElementById('btn');
+    btn.onclick = function() {
+      var box = document.getElementById('box');
+      box.style.display = 'block';
+      setTimeout(function() {
+        box.style.display = 'none'
+      }, 2000)
+    }
+  </script>
+</body>
+</html>
