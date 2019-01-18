@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>放大镜</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 350px;
+      height: 350px;
+      margin: 100px;
+      border: 1px solid #ccc;
+      position: relative;
+    }
+    .big {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      top: 0;
+      left: 360px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      display: none;
+    }
+    .big img {
+      position: absolute;
+    }
+    .mask {
+      width: 175px;
+      height: 175px;
+      background-color: rgba(255, 255, 0, 0.4);
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      cursor: move;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="box">
+    <div class="small">
+      <img src="images/small.jpg" width="350" alt="">
+
+      <div class="mask"></div>
+    </div>
+
+    <div class="big">
+      <img src="images/big.jpg" alt="" width="800" >
+    </div>
+  </div>
+
+  <script>
+    // 1、 鼠标经过时候，显示mask和bigBOX,鼠标离开，隐藏
+    // 2、 鼠标在盒子中移动，让mask和鼠标一起移动
+    // 3、 mask移动，让大图片移动
+    function my$(id) {
+      return document.getElementById(id)
+    }
+
+    var box = my$('box');
+    var smallBox = box.children[0];
+    var bigBox = box.children[1];
+
+    var smallImage = smallBox.children[0];
+    var mask = smallBox.children[1];
+    var bigImage = bigBox.children[0];
+
+    box.onmouseenter = function (e) {
+      mask.style.display = 'block';
+      bigBox.style.display = 'block';
+      // var nX = e.pageX - box.offsetLeft;
+      // var nY = e.pageY - box.offsetTop;
+     
+    }
+    box.onmouseleave = function () {
+      mask.style.display = 'none';
+      bigBox.style.display = 'none';
+
+      document.onmousemove = ''
+    }
+    
+    box.onmousemove = function(e) {
+        var maskX = e.pageX - box.offsetLeft;
+        var maskY = e.pageY - box.offsetTop;
+
+        maskX = maskX - (mask.offsetWidth/2);
+        maskY = maskY - (mask.offsetHeight/2);
+        
+        maskX = maskX < 0 ? 0 : maskX;
+        maskY = maskY < 0 ? 0 : maskY;
+        
+        maskX = maskX > box.offsetWidth - mask.offsetWidth ? box.offsetWidth - mask.offsetWidth : maskX; 
+        maskY = maskY > box.offsetHeight - mask.offsetHeight ? box.offsetHeight - mask.offsetHeight : maskY; 
+
+        mask.style.left = maskX + 'px';
+        mask.style.top = maskY + 'px';
+
+        // mask 移动的距离 / mask 最大能够移动的距离 
+        var maskMax = box.offsetWidth - mask.offsetWidth;
+        var bigImageMax = bigImage.offsetWidth - bigBox.offsetWidth;
+
+        var bigImageX = maskX * bigImageMax / maskMax;
+        var bigImageY = maskY * bigImageMax / maskMax;
+
+        bigImage.style.left = - bigImageX + 'px';
+        bigImage.style.top = - bigImageY + 'px';
+
+      }
+  </script>
+</body>
+</html>

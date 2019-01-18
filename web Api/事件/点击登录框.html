@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>点击登录框</title>
+  <style>
+    .header_login {
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+    }
+    .header_login >a {
+      text-decoration: none;
+      color: pink;
+    }
+    .login-bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgb(187, 187, 187);
+      opacity: 0.3;
+      display: none;
+    }
+    #login_box {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      text-align: center;
+      line-height: 50px;
+    }
+    #login_box >h3 {
+      font-size: 20px;
+      color: pink;
+    }
+    #login_box input {
+      /* border: 1px solid black; */
+    }
+  </style>
+</head>
+<body>
+  <div class="header_login">
+    <a id="link" href="javascript: void(0);">点击弹出登录窗</a>
+  </div>
+  <div id="login_box">
+    <h3>登录窗口</h3>
+    <div class="login-unput-content">
+      <label for="login_input">用户名：</label>
+      <input type="text" placeholder="请输入用户名" id="login_input" name="info[username]"><br>
+    </div>
+    <div class="login-unput-content">
+      <label for="login_">登录密码：</label>
+      <input type="password" placeholder="请输入密码" id="" name="info[password]">
+    </div>
+    </div>
+  <div id="bg" class="login-bg"></div>
+  <script>
+    var link = document.getElementById('link');
+    link.onclick = function () {
+      // 显示登录框和遮盖层
+      return false; //取消默认行为
+      // e.preventDefault
+    }
+  </script>
+</body>
+</html>

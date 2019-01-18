@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>解决触摸冒泡</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    #s-box {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <div id="s-box">
+
+    </div>
+  </div>
+  <script>
+    var box = document.getElementById('box')
+    var sBox = document.getElementById('s-box')
+    var i = 0;
+    box.onmouseover = function() {
+      i++;
+      console.log(i)
+    }
+    // 这样不会触发事件冒泡
+    box.onmouseenter = function() {
+      i++;
+      console.log(i)
+    }
+  </script>
+</body>
+</html>

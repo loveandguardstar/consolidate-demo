@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>模拟滚动条</title>
+  <style>
+    #box {
+      width: 202px;
+      height: 400px;
+      border:1px solid pink;
+      margin: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .content {
+      width: 180px;
+      height: 400px;
+      word-wrap: break-word;
+      position: absolute;
+    }
+    .scroll {
+      /* float: right; */
+      width: 20px;
+      height: 400px;
+      background-color: rgb(226, 224, 224);
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .bar {
+      width: 20px;
+      /* height: 200px; */
+      border-radius: 10px;
+      background-color: red;
+      cursor: pointer;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <div id="content" class="content">未连接到互联网
+        请试试以下办法：
+        未连接到互联网
+请试试以下办法：
+
+检查网线、调制解调器和路由器
+重新连接到 Wi-Fi 网络
+运行 Windows 网络诊断
+ERR_INTERNET_DISCONNECTED
+未连接到互联网
+请试试以下办法：
+
+检查网线、调制解调器和路由器
+重新连接到 Wi-Fi 网络
+运行 Windows 网络诊断
+ERR_INTERNET_DISCONNECTED
+未连接到互联网
+请试试以下办法：
+
+检查网线、调制解调器和路由器
+重新连接到 Wi-Fi 网络
+运行 Windows 网络诊断
+ERR_INTERNET_DISCONNECTED
+未连接到互联网
+请试试以下办法：
+
+检查网线、调制解调器和路由器
+重新连接到 Wi-Fi 网络
+运行 Windows 网络诊断
+ERR_INTERNET_DISCONNECTED
+
+        检查网线、调制解调器和路由器
+        重新连接到 Wi-Fi 网络
+        运行 Windows 网络诊断
+        ERR_INTERNET_DISCONNECTED
+    </div>
+    <div id="scroll" class="scroll">
+      <div id="bar" class="bar"></div>
+    </div>
+  </div>
+
+  <script>
+  // 1、 首先把样式完成,根据内容高度计算滚动条高度
+  // 2、  滑动滚动条
+  // 3、 3/4 = 1/2  当拖拽滚动条，改变内容位置
+  var box = my$('box');
+  var content = my$('content');
+  var scroll = my$('scroll');
+  var bar = my$('bar');
+
+  // offsetHeight  元素大小 + padding + 边框
+  // clientHeight  元素大小 + padding 
+  // scrollHeight  内容大小 + padding
+  var barHeight = 0; 
+  if(content.scrollHeight > box.clientHeight) {
+    barHeight = scroll.clientHeight * box.clientHeight / content.scrollHeight ;
+  }
+  bar.style.height = barHeight + 'px';
+
+  bar.onmousedown = function (e) {
+    e = e || window.event;
+    var nowY = e.pageY - bar.offsetTop - box.offsetTop;
+    
+    document.onmousemove = function(e) {
+      e = e || window.event;
+      var barMax = scroll.clientHeight - bar.clientHeight;
+      var barY = e.pageY - box.offsetTop - nowY;
+
+      barY = barY > barMax ? barMax : barY;
+      barY = barY < 0 ? 0 : barY;
+      bar.style.top = barY + 'px';
+
+      // 实时控制滚动
+      var conMax = content.scrollHeight - box.clientHeight;
+
+      // var conHeight = content.scrollHeight * bar.offsetHeight / scroll.offsetHeight;
+      var conY = barY * conMax / barMax;
+      content.style.top =  - conY  + 'px';
+    }
+  }
+
+  document.onmouseout = function () {
+    document.onmousemove = '';
+  }
+
+  function my$(id) {
+    return document.getElementById(id)
+  }
+  </script>
+</body>
+</html>

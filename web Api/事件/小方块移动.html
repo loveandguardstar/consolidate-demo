@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小方块移动</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">begin</button>
+  <div id="box" class="box"></div>
+  
+  <script>
+    //  1、 点击开始触发事件
+    // 2、 盒子向右匀速运动
+    // 3、 到达指定地点停下
+
+    var btn = my$('btn');
+    var box = my$('box');
+    var timer = null;
+
+    btn.onclick = function() {
+
+      animate(box, 800)
+    }
+    var timerId = null;
+
+    function animate(element, target) {
+
+      if(timerId) {
+        clearInterval(timerId);
+        timerId = null;
+      }
+      
+
+      timerId = setInterval(function() {
+        var step = (target - element.offsetLeft) / 8;
+        var current = element.offsetLeft;
+
+        if(current >= target) {
+          clearInterval(timer);
+          element.style.left = target + 'px';
+          return;
+        }
+        current += step;
+
+        element.style.left = current + 'px';
+
+      }, 30)
+     
+    }
+
+    function my$(id) {
+      return document.getElementById(id)
+    }
+  </script>
+</body>
+</html>

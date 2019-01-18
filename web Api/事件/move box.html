@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>move box</title>
+  <style>
+    #box {
+      width: 300px;
+      height: 200px;
+      border: 1px dashed pink;
+      box-shadow: 2px 2px 3px red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /* margin-top: -150px;
+      margin-left: -100px; */
+      transform: translateX(-50%);
+      transform: translateY(-50%);
+    }
+    .hd {
+      background-color: rgb(94, 93, 93);
+      color: white;
+      cursor: move;
+    }
+    #box_close {
+      float: right;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <div class="hd" id="drop">注册信息（可以拖拽） <span id="box_close">[关闭]</span> </div>
+    <div></div>
+  </div>
+  <script>
+    var box = document.getElementById('box')
+    var drop = document.getElementById("drop");
+
+    drop.onmousedown = function (e) {
+      e = e || window.event;
+      var nX = e.pageX - box.offsetLeft;
+      var nY = e.pageY - box.offsetTop;
+      console.log(e.pageX + '|' + box.offsetLeft)
+      console.log(e.pageY + '|' + box.offsetTop)
+      //  这里需注意，避免鼠标移除盒子
+      document.onmousemove = function(e) {
+        e = e || window.event;
+
+        var boxX = e.pageX - nX;
+        var boxY = e.pageY - nY;
+        console.log(boxX + '|' + boxY)
+
+        box.style.top = boxY + 'px';
+        box.style.left = boxX + 'px';
+      }
+
+      // 存储鼠标在盒子中位置
+      // 点击移动事件
+      // 获取鼠标位置减去存储位置
+      // 得到盒子位置
+      // 释放清除
+    }
+    document.onmouseup = function() {
+      document.onmousemove = ''
+    }
+
+    // 点击关闭按钮隐藏按钮
+  </script>
+</body>
+</html>
