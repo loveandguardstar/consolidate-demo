@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三角对象</title>
+</head>
+<body>
+  <script>
+    function Student(name, age) {
+      this.name = name; 
+      this.age = age;
+    }
+
+    Student.prototype.printName = function() {
+      console.log(this.name)
+    }
+
+    var zs = new Student('zs', 23);
+
+    console.log(zs.__proto__);
+    // console.log(Student.prototype);
+    // console.log(Student.prototype === zs.__proto__);
+
+    var a = new Object();
+    var o = zs.__proto__;
+    var o1 = o.__proto__;
+    // console.dir(o)
+    // console.dir(o1);
+    // console.dir(o1.__proto__);
+    // // console.log(a)
+    // // console.log(a === zs.__proto__);
+    // console.log(zs.__proto__.__proto__ === Object.prototype);
+    // console.log(zs.__proto__.__proto__.constructor);
+
+    console.dir(Object)
+    console.dir(Object.prototype)
+  </script>
+</body>
+</html>

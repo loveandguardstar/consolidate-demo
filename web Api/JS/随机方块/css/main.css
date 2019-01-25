@@ -1,0 +1,6 @@
+#container {
+  width: 600px;
+  height: 600px;
+  background: rgb(170, 170, 170);
+  position: relative;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>转向面向对象开发</title>
+</head>
+<body>
+  <script>
+    //  面向过程
+    //  1、 找到人
+    //  2、 打印成绩单
+    var student1 = {name: 'zs', subject: 'chinese', score: 80}
+    var student2 = {name: 'ls', subject: 'chinese', score: 90}
+
+    console.log(student1.name, student1.subject, student1.score);
+    console.log(student2.name, student2.subject, student2.score);
+
+    //  面向对象的方式
+    //  创建模板，  用于创建对象
+    //  在 JS 中创建对象的模板是构造函数
+    //  而在其他语言中创建对象的模板是 类
+    function Studnet(name, subject, score) {
+      this.name = name;
+      this.subject = subject;
+      this.score = score;
+      
+      this.printScore = function() {
+        console.log(this.name, this.subject, this.score);
+      }
+    }
+
+    var stu1 = new Studnet('zs', 'English', 144);
+    var stu2 = new Studnet('ls', 'Chinese', 122);
+    stu1.printScore();
+    stu2.printScore();
+    
+  </script>
+</body>
+</html>

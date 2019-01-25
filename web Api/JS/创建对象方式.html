@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>创建对象方式</title>
+</head>
+<body>
+  <script>
+    var hero = new Object();
+    hero.name = 'liubei';
+    hero.blood = 100;
+    hero.weapon = '剑';
+    hero.attack = function() {
+      console.log(this.weapon + '攻击敌人')
+    }
+
+
+    var hero2 = {
+      name: 'zhangfei',
+      blood: 100,
+      weapon: 'dao',
+      attack: function() {
+        console.log(this.weapon + '攻击别人')
+      },
+    }
+
+    function createHero(name, blood, weapon) {
+      var o = new Object();
+      o.name = name;
+      o.blood = blood;
+      o.weapon = weapon;
+      o.attack = function() {
+        console.log(o.weapon + '攻击别人')
+      };
+      return o;
+    }
+
+
+    // 构造函数步骤
+    //  1、 创建一个新对象
+    //  2、 把 this 指向这个对象
+    //  3、 执行构造函数里面的代码
+    //  4、 将 this 返回
+    function Hero(name, blood, weapon) {
+      this.name = name;
+      this.blood = blood;
+      this.weapon = weapon;
+      
+      this.attack = function () {
+        console.log(this.weapon + '攻击别人')
+      }
+    }
+
+    var hero3 = new Hero('zy', 'qiang', '100');
+    hero3.attack();
+
+    var arr = new Array();
+    console.log(typeof hero3);
+    console.log(typeof arr);
+
+    console.log(hero3.constructor);
+    console.log(arr.constructor);
+
+    console.log(hero3 instanceof Hero);
+    console.log(arr instanceof Array)
+  </script>
+</body>
+</html>
