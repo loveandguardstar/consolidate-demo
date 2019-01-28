@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原型继承</title>
+</head>
+<body>
+  <script>
+      function Person() {
+        this.name = 'name';
+        this.age = '22';
+        this.sex = 'man'
+      }
+      function Student() {
+        this.score = 100;
+      }
+
+      Student.prototype = new Person();
+      Student.prototype.constructor = Student;
+      var s1 = new Student();
+      console.dir(s1);
+      console.dir(s1.constructor);
+  </script>
+</body>
+</html>

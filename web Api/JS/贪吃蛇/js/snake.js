@@ -65,11 +65,16 @@
     let headY = head.y * this.height;
     if (headX === food.x && headY === food.y) {
       let last = this.body[this.body.length -1];
-      this.body.push({
-        x: last.x,
-        y: last.y,
-        color: last.color
-      })
+      // this.body.push({
+      //   x: last.x,
+      //   y: last.y,
+      //   color: last.color
+      // })
+      let obj = {};
+      extend(last, obj);
+      this.body.push(obj);
+
+      // 随机在地图上生成食物
       food.render(map)
     }
   }
@@ -83,5 +88,16 @@
       elements.splice(i, 1);
     }
   }
+
+  function extend(parent, child) {
+    let i;
+    for(i in parent) {
+      if(child[i]) {
+        continue;
+      }
+      child[i] = parent[i];
+    }
+  }
+
   window.Snake = Snake;
 })()

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>递归</title>
+</head>
+<body>
+  <script>
+    //  递归，函数自己调用自己
+    //  一般都得写一个结束的语句， 否则内存泄漏
+    // let i = 1;
+    // function getSum() {
+    //   i += i + 1;
+    //   console.log(i);
+    //   getSum();
+    // }
+    // getSum();
+    //  利用递归实现 1 + 2 + 3 + 4 + 5 + ..... + n;
+    function getSum(n) {
+      if (n === 1) {
+        return 1;
+      }
+      return n + getSum(n - 1)
+    }
+    console.log(getSum(3));
+  </script>
+</body>
+</html>

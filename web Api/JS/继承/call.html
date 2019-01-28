@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>call</title>
+</head>
+<body>
+  <script>
+    function fn(x,y) {
+      console.log(this);
+      console.log(x+y)
+    }
+    let o = {
+      x: 'star'
+    };
+    //  bind 改变this 指向，返回新函数但是不调用函数
+    // let fn1 = fn.bind(o, 2, 4);
+    // fn1();
+
+    // call()  改变this 指向，直接调用函数
+
+    fn.call(o, 2, 9)
+  </script>
+</body>
+</html>

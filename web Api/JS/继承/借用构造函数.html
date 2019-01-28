@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>借用构造函数</title>
+</head>
+<body>
+  <script>
+    function Person(name, age, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+
+    function Student(name, age, sex, score) {
+      Person.call(this, name, age, sex);
+      this.score = score;
+    }
+    let s1 = new Student('zs', 23, 'man', 100);
+    // console.dir(s1);
+
+    function getRandom() {
+      let random = parseInt(Math.random() * 10) + 1;
+      return function () {
+        return random;
+      }
+    }
+
+    var fn = getRandom();
+    // console.log(fn())
+    // console.log(fn())
+    // console.log(fn())
+    // console.log(fn())
+
+    function getFun(n) {
+      return function (m) {
+        return n + m;
+      }
+    }
+    var fn100 = getFun(100);
+    console.log(fn100(2));
+    let fn1000 = getFun(1000);
+    console.log(fn1000(5));
+  </script>
+</body>
+</html>

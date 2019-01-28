@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var wjl = {
+      name: '王健林',
+      money: 1000000,
+      houses: ['别墅', '大别墅'],
+      cars: '奔驰',
+      play: function() {
+        console.log('6666')
+      }
+    }
+    var wsc = {
+      name: '王思聪'
+    }
+
+    function extend(parent, son) {
+      let key;
+      for(key in parent) {
+        if(son[key]) {
+          continue;
+        }
+        son[key] = parent[key]
+      }
+    }
+
+    extend(wjl, wsc);
+    
+  </script>
+</body>
+</html>

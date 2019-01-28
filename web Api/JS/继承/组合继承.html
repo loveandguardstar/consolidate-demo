@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 组合继承
+    function Person(name, age, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+
+    Person.prototype.sayHi = function() {
+      console.log('hello, my name is ' + this.name)
+    }
+
+    function Student(name, age, sex, score) {
+      // 借用构造函数
+      Person.call(this, name, age, sex);
+      this.score = score
+    }
+
+    Student.prototype = new Person();
+    Student.prototype.constructor = Student;
+
+    // let s1 = new Student('zs', 'man', 23, 100);
+    // console.dir(s1);
+
+    Student.prototype.exam = function () {
+      console.log('exam');
+    }
+
+    // let p1 = new Person('ls', 18, 'man');
+    // console.dir(p1)
+    function Teacher(name, age, sex, sallary) {
+      Person.call(this, name, age, sex);
+      this.sallary = sallary;
+    }
+
+    Teacher.prototype = new Person();
+    Teacher.prototype.constructor = Teacher;
+
+    let t1 = new Teacher('ww', 30, 'man', 10000);
+    console.dir(t1);
+  </script>
+</body>
+</html>

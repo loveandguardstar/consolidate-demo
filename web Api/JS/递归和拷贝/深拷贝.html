@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>深拷贝</title>
+</head>
+<body>
+  <script>
+    let obj1 = {
+      name: 'star',
+      age: 22,
+      dog: {
+        name: 'naigai',
+        age: 1
+      },
+      phone: ['vivo x6', 'iphone X']
+    }
+    let obj2 = {};
+    function deepCopy(o1, o2) {
+      let key;
+      for(key in o1) {
+        let item = o1[key];
+        if(item instanceof Object) {
+          o2[key] = {};
+          deepCopy(item, o2[key]);
+        } else if(item instanceof Array) {
+          o2[key] = [];
+          deepCopy(item, o2[key])
+        } else {
+          o2[key] = item;
+        }
+      }
+    }
+
+    deepCopy(obj1, obj2);
+    obj1.dog.age = '1.5';
+    obj1.phone = ['iphone X', 'iphone XS'];
+    console.dir(obj2)
+  </script>
+</body>
+</html>

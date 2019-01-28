@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>斐波那契</title>
+</head>
+<body>
+  <script>
+    //  求斐波那契数列数列
+    function fn(n) {
+      if(n === 1 || n === 2) {
+        return 1;
+      }
+      return fn(n - 2) + fn(n - 1);
+    }
+    console.log(fn(6));
+  </script>
+</body>
+</html>

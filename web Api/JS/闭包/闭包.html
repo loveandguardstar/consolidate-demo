@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包</title>
+</head>
+<body>
+  <script>
+    //  闭包： 在一个作用域中可以访问另一个作用域的变量
+
+    //  未发生闭包
+    // function fn() {
+    //   let n = 10;
+    //   return n;
+    // }
+
+    // fn();
+    //  思考 1：
+    // var name = 'my wife'
+    // var obj = {
+    //   name : 'star',
+    //   // that : this,
+    //   getName: function() {
+    //       return function () {
+    //         return this.name
+    //     }
+    //   }
+    // }
+    // // let fn = fn2();
+    // console.log(obj.getName()());
+    // fn();
+    //  思考 二
+    var name = 'my wife'
+    var obj = {
+      name : 'star',
+      getName: function() {
+        let that = this;
+        return function () {
+          return that.name
+        }
+      }
+    }
+    console.log(obj.getName()());
+  </script>
+</body>
+</html>

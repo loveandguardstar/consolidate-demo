@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>遍历DOM树</title>
+</head>
+<body>
+  <h1>666</h1>
+  <strong>565656</strong>
+  <ul id="uly">
+    <li>678</li>
+    <li>67358</li>
+    <li>63478</li>
+  </ul>
+  <div>good</div>
+  <script>
+    function loadTree(parent, callback) {
+      let i;
+      for (i = 0; i < parent.children.length; i++) {
+        let child = parent.children[i];
+        // console.log(child);
+        if (callback) {
+          callback(child)
+        }
+        loadTree(child)
+      }
+    }
+    let ul = document.getElementById('uly');
+    loadTree(ul, function(element) {
+      element.onclick = function (){
+        console.log(this.innerText)
+      }
+    })
+  </script>
+</body>
+</html>
