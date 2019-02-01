@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则</title>
+</head>
+<body>
+    QQ号：<input type="text" id="txtQQ"><span></span><br>
+    邮箱：<input type="text" id="txtEMail"><span></span><br>
+    手机：<input type="text" id="txtPhone" ><span></span><br>
+    生日：<input type="text" id="txtBirthday"><span></span><br>
+    姓名：<input type="text" id="txtName"><span></span><br>
+  <script>
+    // 1 验证QQ号
+    addCheck('txtQQ', /^\d{5,12}$/, '请输入正确的QQ号格式');
+      // 2 验证电子邮箱
+      addCheck('txtEMail', /^\w+@\w+(\.\w+)+$/, '请输入正确的EMail号格式');
+      // 3 手机号
+      addCheck('txtPhone', /^[1-9]\d{10}$/, '请输入正确的手机号码格式');
+      // 4 验证日期
+      addCheck('txtBirthday', /^\d{4}-\d{1,2}-\d{1,2}$/, '请输入正确的日期格式')
+      // 5 验证姓名
+      addCheck('txtName', /^[\u4e00-\u9fa5]{2,4}$/, '请输入2-4个汉字')
+
+    function addCheck(elementId, reg, tip) {
+      let element = document.getElementById(elementId);
+      element.onblur = function(){
+        let span = this.nextElementSibling;
+        if (!reg.test(this.value)) {
+            span.innerText = tip;
+            span.style.color = 'red';
+          } else {
+            span.innerText = '';
+            span.style.color = '';
+          }
+      }
+    }
+  </script>
+</body>
+</html>

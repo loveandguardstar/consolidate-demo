@@ -7,11 +7,15 @@
   <title>js</title>
 </head>
 <body>
+  <p id="p1">测试</p>
+  <div>
+      <span>test</span>
+      <span>test</span>
+      <span>test</span>
+  </div>
+  <script src="zepto.js"></script>
   <script>    
     //  js 是编程语言
-    var a = 1;
-    var b = 2;
-    console.log(a + b);
 
     // 特点： 
     //  1、 解释执行    解释一行执行一行    慢
@@ -19,6 +23,7 @@
     //  2、 灵活  动态特性   可以随意给对象增加属性和方法
     //  3、 头等函数   函数在JS 中是一等公民
     //  4、 执行环境   宿主环境中执行
+    console.log( typeof window.$ ); // 'function'
   </script>
 </body>
 </html>
