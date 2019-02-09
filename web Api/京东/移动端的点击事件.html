@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>移动端点击事件</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      border: 1px solid pink;
+      text-align: center;
+      line-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">click here</div>
+  <script src="./js/common.js"></script>
+  <script>
+    let box = document.querySelector('.box');
+    // 单击操作特点
+    //  1. 判断点击次数
+    //  2. 判断点击时间
+    //  3.判断点击抖动距离
+    let startTime, startX, startY;
+    // box.addEventListener('touchstart', function(e) {
+    //   console.dir(e.targetTouches[0]);
+    //   if(e.targetTouches.length > 1) {
+    //     return;
+    //   }
+    //   // 记录开始时间和位置
+    //   startTime=Date.now();
+    //   startX=e.targetTouches[0].clientX;
+    //   startY=e.targetTouches[0].clientY;
+    // })
+    // // touchend: 当手指松开时候触发，意味着当前元素已经没有手指对象了，无法获取 targetTouches 对象
+    // box.addEventListener('touchend', function(e){
+    //   console.dir(e.changedTouches[0]);
+    //   if(e.changedTouches.length > 1) {
+    //     return;
+    //   }
+    //   if(Date.now()-startTime>300){
+    //     return;
+    //   }
+    //   let endX=e.changedTouches[0].clientX;
+    //   let endY=e.changedTouches[0].clientY;
+    //   if(Math.abs(endX-startX) < 6 && Math.abs(endY-startY) < 6) {
+    //     console.log('移动端单击事件 -- tap 事件')
+    //   }
+    // })
+    let arr = [];
+    itcast.tap(arr, function(){
+      console.log(66)
+    })
+  </script>
+</body>
+</html>

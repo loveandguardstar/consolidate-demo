@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="./css/jd_base.css">
     <link rel="stylesheet" href="./css/jd_index.css">
     <!--引入首页的js文件-->
-    <script src="./js/index.js"></script>
+    <!-- <script src="./js/index2.js"></script> -->
+    <script src="./zepto-master/src/zepto.min.js"></script>
+    <script src="./zepto-master/src/selector.js"></script>
+    <script src="./zepto-master/src/fx.js"></script>
+    <script src="./zepto-master/src/touch.js"></script>
     <title>京东</title>
 </head>
 <body>
@@ -34,7 +38,7 @@
                 </a>
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="javascript:(void:0);">
                     <img src="./uploads/l2.jpg" alt="">
                 </a>
             </li>
@@ -71,8 +75,8 @@
         </ul>
         <!--点标记-->
         <ul class="jd_bannerIndicator">
-            <li></li>
             <li class="active"></li>
+            <li></li>
             <li></li>
             <li></li>
             <li></li>
@@ -85,7 +89,7 @@
     <div class="jd_nav">
         <ul class="clearfix">
             <li>
-                <a href="javascript:;">
+                <a href="index2.html">
                     <img src="./images/nav_1.png" alt="">
                     <p>商品分类</p>
                 </a>
@@ -230,5 +234,80 @@
         </div>
     </div>
 </div>
+<script>
+    /*使用zepto 实现轮播图*/
+    $(function(){
+        // 1. 添加首尾两张图片
+        // 2.重新设置图片盒子宽度和图片的宽度
+        // 3.开启定时器，实现轮播
+        // 4.添加移动端滑动时间
+        // 5.添加过渡效果结束之后的监听
+        // 获取轮播图元素
+        let banner = $('.jd_banner');
+        let bannerWidth = banner.width();
+        // 获取图片盒子
+        let imgBox=banner.find('ul:first-of-type');
+        // 获取点标记
+        let indicators=banner.find('ul:eq(1)').find('li');
+        // console.log(indicators);
+        // 获取首尾两张图片
+        let first=imgBox.find('li:first-of-type');
+        let last=imgBox.find('li:last-of-type');
+        // 将两张图片添加到首尾位置
+        imgBox.append(first.clone());
+        last.clone().insertBefore(first);
+        // 获取盒子宽度
+        let lis = imgBox.find('li');
+        let count = lis.length;
+        imgBox.width(count*bannerWidth);
+        // 设置 li 标签的宽度
+        lis.each(function(index, value) {
+            $(lis[index]).width(bannerWidth);
+        });
+        // 设置默认偏移量
+        imgBox.css('left', -bannerWidth);
+        // 定义图片索引
+        let index = 1;
+         /*图片轮播的动画效果*/
+        let imgAnimation=function(){
+            imgBox.animate(
+                    {"left":-index*bannerWidth},
+                    200,
+                    "ease-in-out",
+                    function(){ //动画执行完毕之后的回调
+                        /*判断当前索引位置是否是最后一张或者第一张*/
+                        if(index==count-1){ //最后张
+                            index=1;
+                            /*让它瞬间偏移到索引1的位置--非过渡*/
+                            imgBox.css('left', -index*bannerWidth);
+                        }
+                        else if(index==0){
+                            index=count-2;
+                            imgBox.css("left",-index*bannerWidth);
+                        }
+                        /*设置点标记*/
+                        indicators.removeClass("active").eq(index-1).addClass("active");
+                    }
+            );
+        }
+        let timerId = setInterval(() => {
+            index++;
+            imgAnimation();
+        }, 2000);
+        // 添加滑动事件
+        imgBox.on('swipeLeft',function(){
+            clearInterval(timerId);
+            index ++;
+            imgAnimation();
+            console.log(index)
+        })
+        imgBox.on('swipeRight',function(){
+            clearInterval(timerId);
+            index--;
+            imgAnimation();
+        })
+
+    })
+</script>
 </body>
 </html>
