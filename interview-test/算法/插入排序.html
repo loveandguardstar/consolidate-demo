@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>插入排序</title>
+</head>
+<body>
+  <script>
+    // function insertionSort(arr) {
+    //   let len = arr.length,
+    //   j, temp;
+    //   for(var i=1;i<len;i++) {
+    //     j=i;
+    //     temp=arr[i];
+    //     while(j>0 && arr[j-1] > temp) {
+    //       arr[j] = arr[j-1];
+    //       j--;
+    //     }
+    //     arr[j] = temp;
+    //   }
+    // }
+    let arr = [1, 4, 5, 2, 6, 3];
+    insertionSort(arr);
+    console.dir(arr)
+    function insertionSort(arr) {
+      let len = arr.length,
+      j, temp;
+      for(var i = 1; i < len; i ++) {
+       j = i;
+       temp = arr[i];
+       while(j>0 && arr[j-1]>temp) {
+         arr[j] = arr[j-1];
+         j--;
+       }
+       arr[j]=temp;
+      }
+    }
+  </script>
+</body>
+</html>

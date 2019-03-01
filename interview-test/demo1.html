@@ -5,12 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>10个<a></title>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+    </style>
 </head>
 <body>
   <div id="box"></div>
+  <ul id="menu">
+    <li><a href="http://menu1.html">1a</a></li>
+    <li><a href="javascript:void(0);">2a</a></li>
+    <li><a href="http://menu3.html">3a</a></li>
+  </ul>
   <script>
-    var a
-    for (var i=0; i< 10; i ++) {
+    var a, b = 2;
+    for (let i=0; i< 10; i ++) {
+      console.log('777');
       (function(i) {
         a = document.createElement('a')
         a.innerHTML = i + '<br>'
@@ -20,6 +33,34 @@
         },false)
       })(i)
       document.body.appendChild(a)
+    }
+    let box = document.querySelector('#box');
+    let menu = document.querySelector('#menu');
+    console.log(b ++ );
+    menu.onclick = function(e) {
+      e = e || window.event;
+      let target = e.target || e.srcElement;
+      let pageid, hrefparts;
+      hrefparts = target.href.split('/');
+      console.log(hrefparts);
+      pageid = hrefparts[hrefparts.length-1];
+      pageid = pageid.replace('.html', '')
+    }
+    // let i = 0, len = 4;
+    // while(i < len) {
+    //   console.log('who is ??');
+    //   i ++;
+    // }
+    // for(let i = 0, len = 4; i < len; i ++){
+    //   console.log('what ??')
+    // }
+    let i = 0, len = 4;
+    do {
+      console.log('where ??');
+      i ++;
+    } while(i < len)
+    for(let i = 4; i --;){
+      console.log('where ??');
     }
   </script>
 </body>

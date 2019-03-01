@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>call</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      '0': 'star',
+      '1': 'good',
+      '2': 'woman',
+      length: 3,
+    }
+    // obj['3'] = '~~';
+    // obj.length ++;
+    Array.prototype.push.call(obj, '~~');
+    Array.prototype.splice.call(obj, 3, 1)
+    // console.dir(obj);
+    console.log(obj.toString());
+    let arr = [5, 9];
+    console.log(Object.prototype.toString.call(arr))
+  </script>
+</body>
+</html>
